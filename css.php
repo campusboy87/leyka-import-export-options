@@ -40,7 +40,7 @@ defined( 'LIEO' ) || exit;
         font-weight: bold;
     }
 
-    .lieo-success-note-note {
+    .lieo-success-note {
         color: green;
         font-weight: bold;
     }
