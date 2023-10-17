@@ -48,10 +48,10 @@ $maybe_import = lieo__maybe_import_options();
 
 	<p>
 		<label>
-			Вставьте дамп настроек Лейки в формате json и нажмите кнопку "Импорт".
+			Вставьте дамп настроек Лейки в формате json и нажмите кнопку "Импортировать".
 			<textarea class="lieo_import_field" name="lieo_import_field"></textarea>
 		</label>
 	</p>
 
-	<button class="button button-primary">Импорт</button>
+	<button class="button button-primary">Импортировать</button>
 </form>
