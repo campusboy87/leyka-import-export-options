@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: import and export Leyka options
+ * Plugin Name: Импорт и экспорт настроек Лейки
  *
  * Description: Позволяет экспортировать и импортировать настройки Лейки.
  *
  * Author: campusboy
  * Plugin URI: https://github.com/campusboy87/leyka-import-export-options
- * Author URI: https://wp-kama.ru/
+ * Author URI: https://github.com/campusboy87/
  *
  * Requires PHP: 7.4
  * Requires at least: 5.9.0
  *
- * Version: 1.0
+ * Version: 1.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -65,20 +65,46 @@ function lieo__options_list( $fields = [] ) {
 	return $result ?: [];
 }
 
+/**
+ * Генерирует админ-страницу плагина.
+ *
+ * @return void
+ */
 function lieo__render_admin_page() {
 	include __DIR__ . '/templates/admin-page.php';
 }
 
+/**
+ * Проверяет, является ли вкладка активной.
+ *
+ * @param string $check_tab
+ *
+ * @return bool
+ */
 function lieo__is_tab( $check_tab ) {
 	$current_tab = $_GET['tab'] ?? 'list';
 
 	return $check_tab === $current_tab;
 }
 
+/**
+ * Получает CSS стиль для активного таба.
+ *
+ * @param string $check_tab
+ *
+ * @return string
+ */
 function lieo__maybe_add_css_for_active_tab( $check_tab ) {
 	return lieo__is_tab( $check_tab ) ? 'nav-tab-active' : '';
 }
 
+/**
+ * Получает ссылку на указанную вкладку плагина.
+ *
+ * @param $anchor
+ *
+ * @return string
+ */
 function lieo__tab_url( $anchor ) {
 	$base_url = admin_url( 'admin.php?page=leyka-import-export-options' );
 
@@ -89,6 +115,11 @@ function lieo__tab_url( $anchor ) {
 	return add_query_arg( 'tab', $anchor, $base_url );
 }
 
+/**
+ * Получет опции Лейки в формате json.
+ *
+ * @return false|string|null
+ */
 function lieo__options_encode() {
 	$options = lieo__options_list( [ 'option_name', 'option_value', 'autoload' ] );
 
@@ -97,7 +128,7 @@ function lieo__options_encode() {
 		$option->option_value = base64_encode( $option->option_value );
 	}
 
-	return wp_json_encode( $options, JSON_PRETTY_PRINT );
+	return $options ? wp_json_encode( $options, JSON_PRETTY_PRINT ) : null;
 }
 
 /**
