@@ -23,13 +23,13 @@ if ( ! current_user_can( 'manage_options' ) ) {
 	</div>
 
 	<nav class="nav-tab-wrapper lieo-nav-tab-wrapper">
-		<a href="<?= lieo__tab_url( 'list' ) ?>" class="nav-tab <?= lieo__maybe_add_css_for_active_tab( 'list' ) ?>">
+		<a href="<?php echo lieo__tab_url( 'list' ) ?>" class="nav-tab <?php echo lieo__maybe_add_css_for_active_tab( 'list' ) ?>">
 			Список
 		</a>
-		<a href="<?= lieo__tab_url( 'export' ) ?>" class="nav-tab <?= lieo__maybe_add_css_for_active_tab( 'export' ) ?>">
+		<a href="<?php echo lieo__tab_url( 'export' ) ?>" class="nav-tab <?php echo lieo__maybe_add_css_for_active_tab( 'export' ) ?>">
 			Экспорт
 		</a>
-		<a href="<?= lieo__tab_url( 'import' ) ?>" class="nav-tab <?= lieo__maybe_add_css_for_active_tab( 'import' ) ?>">
+		<a href="<?php echo lieo__tab_url( 'import' ) ?>" class="nav-tab <?php echo lieo__maybe_add_css_for_active_tab( 'import' ) ?>">
 			Импорт
 		</a>
 	</nav>

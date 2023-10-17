@@ -39,11 +39,11 @@ $maybe_import = lieo__maybe_import_options();
 
 <?php if ( true === $maybe_import ): ?>
 	<p class="lieo-success-note">
-		Настройки успешно импортировались!
+		Настройки успешно импортировались! Посмотрите <a href="<?php echo lieo__tab_url( 'list' ) ?>">список</a>.
 	</p>
 <?php endif; ?>
 
-<form method="post" action="<?= lieo__tab_url( 'import' ) ?>">
+<form method="post" action="<?php echo lieo__tab_url( 'import' ) ?>">
 	<?php wp_nonce_field( 'lieo_export', 'lieo_export_nonce' ); ?>
 
 	<p>
